@@ -69,5 +69,10 @@ urlpatterns=[
 
     #admin side : Add candidates
     path("add_candidates/", views.add_candidates, name="add_candidates"),
+    #Add recruiters
     path("add_recruiters/", views.add_recruiters, name="add_recruiters"),
+    #view registered candidates
+    path("admin_candidates/", views.admin_candidates, name="admin_candidates"),
+    #view registered recruiters
+    path("admin_recruiters/", views.admin_recruiters, name="admin_recruiters"),
 ]

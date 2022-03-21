@@ -49,15 +49,17 @@
                                     <td>{{ i.phonenumber }}</td>
                                     <td><a class="btn btn-info " href="{% url 'viewcandidate' i.id %}" role="button"
                                             style="color: #fff;">View</a></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td><a class="btn btn-info " href="{% url 'update_candidate' i.id %}" role="button"
+                                            style="color: #fff;">Update</a></td>
+                                    <td><a class="btn btn-info " href="{% url 'delete' i.id %}" role="button"
+                                            style="color: #fff;">Delete</a></td>
                                 </tr>
                             </tbody>
                             {% endfor %}
 
 
                         </table>
-                        <a href="/candidate_home/">Back</a>
+                        <a href="/admin_home/">Back</a>
                     </form>
                 </div>
             </div>

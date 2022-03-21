@@ -61,10 +61,7 @@ def update_candidate(request,pk):
             form.save()
             return redirect('register_candidates')
     return render(request, 'update_candidate.html', {'form':form})
-#candidate view
-def candidate_view(request):
-    cr = candidate.objects.all()
-    return render(request, 'candidate_view.html',{'cr':cr})
+
 
 #candidate login
 def candidate_login(request):
@@ -99,12 +96,7 @@ def recruiter_register(request):
 
 #view recruiter 
 def register_recruiters(request):
-    print (request.user.username)
-    if request.user.is_superuser:
-        cr = recruiter.objects.all()
-    else:
-        current_user = request.user.username
-        
+    cr = recruiter.objects.all()
     return render(request, 'register_recruiters.html',{'cr':cr})
 
 #view recruiter profile
@@ -211,6 +203,16 @@ def add_recruiters(request):
         password = request.POST.get('password')
         recruiter(companyname=companyname,companyaddress=companyaddress,email=email,phonenumber=phonenumber,username=username,password=password).save()
     return render(request, 'add_recruiters.html')
+
+#admin side : candidates list
+def admin_candidates(request):
+    cr = candidate.objects.all()
+    return render(request, 'admin_candidates.html',{'cr':cr})
+
+#admin side : recruiters list
+def admin_recruiters(request):
+    cr = candidate.objects.all()
+    return render(request, 'admin_recruiters.html',{'cr':cr})
 
 #admin login
 def admin_login(request):
