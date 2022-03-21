@@ -18,7 +18,7 @@ def candidate_home(request):
 def recruiter_home(request):
     return render(request,'recruiter_home.html')
 
-#recruiter home page
+#admin home page
 def admin_home(request):
     return render(request,'admin_home.html')
 
@@ -61,6 +61,10 @@ def update_candidate(request,pk):
             form.save()
             return redirect('register_candidates')
     return render(request, 'update_candidate.html', {'form':form})
+#candidate view
+def candidate_view(request):
+    cr = candidate.objects.all()
+    return render(request, 'candidate_view.html',{'cr':cr})
 
 #candidate login
 def candidate_login(request):
@@ -95,7 +99,12 @@ def recruiter_register(request):
 
 #view recruiter 
 def register_recruiters(request):
-    cr = recruiter.objects.all()
+    print (request.user.username)
+    if request.user.is_superuser:
+        cr = recruiter.objects.all()
+    else:
+        current_user = request.user.username
+        
     return render(request, 'register_recruiters.html',{'cr':cr})
 
 #view recruiter profile
@@ -178,6 +187,18 @@ def update_job(request,pk):
 def apply_jobs(request):
     cr = jobs.objects.all()
     return render(request, 'apply_jobs.html',{'cr':cr})
+
+#add candidates
+def add_candidates(request):
+    if request.method == 'POST':
+        firstname = request.POST.get('firstname')
+        lastname = request.POST.get('lastname')
+        email = request.POST.get('email')
+        phonenumber = request.POST.get('phonenumber')
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        candidate(firstname=firstname,lastname=lastname,email=email,phonenumber=phonenumber,username=username,password=password).save()
+    return render(request, 'add_candidates.html')
 
 #admin login
 def admin_login(request):

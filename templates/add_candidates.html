@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Candidates</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+    <style>
+        *{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .divider:after,
+        .divider:before {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #eee;
+        }
+    </style>
+
+    <section class="vh-100">
+        <div class="container py-5 h-100">
+            <div class="row d-flex align-items-center justify-content-center h-100">
+                <div class="col-md-8 col-lg-7 col-xl-6">
+                    <img src="https://media.istockphoto.com/photos/group-of-unrecognizable-candidates-waiting-for-a-job-interview-picture-id1097271132?k=20&m=1097271132&s=612x612&w=0&h=jJtWwY_pCn28XPXOA3bjqlnidNXAf7zbww4_EmUCWkY="
+                        class="rounded img-fluid" alt="Cinque Terre"
+                        style="width: 400px; height: 580px; margin-top: -75px; margin-left: 85px;">
+                </div>
+                <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1" style="margin-top: -25px; margin-left: -52px;">
+                    <form class="form col-12 " method="POST" action="/add_candidates/">
+                        {%csrf_token %}
+                        <!-- First name input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form1Example13">First Name</label>
+                            <input type="text" name="jobtype" id="form1Example13" placeholder="Type your first name"
+                                class="form-control form-control-lg">
+                        </div>
+                        <!-- Last name input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form1Example13">Last Name</label>
+                            <input type="text" name="jobname" id="form1Example13" placeholder="Type your last name"
+                                class="form-control form-control-lg">
+                        </div>
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form1Example13">Email Address</label>
+                            <input type="email" name="vacancies" id="form1Example13" placeholder="Type your email address"
+                                class="form-control form-control-lg">
+                        </div>
+                        <!-- Phone Number input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form1Example13">Phone Number</label>
+                            <input type="number" name="phonenumber" id="form1Example13" placeholder="Type your phone number"
+                                class="form-control form-control-lg">
+                        </div>
+                        <!-- Username input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form1Example13">User Name</label>
+                            <input type="text" name="username" id="form1Example13" placeholder="Type your username"
+                                class="form-control form-control-lg">
+                        </div>
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form1Example13">Password</label>
+                            <input type="password" name="password" id="form1Example13" placeholder="Type your password"
+                                class="form-control form-control-lg">
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-info btn-lg btn-block">Add</button>
+                        <a href="/admin_home/">Back</a>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/8677b4cc00.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

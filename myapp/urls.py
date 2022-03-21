@@ -31,7 +31,7 @@ urlpatterns=[
     path("viewrecruiter/<str:pk>", views.viewrecruiter, name="viewrecruiter"),
 
     #delete recruiter profile
-    path("delete/<str:pk>",views.delete_recruiter, name="delete"),
+    path("delete_recruiter/<str:pk>",views.delete_recruiter, name="delete_recruiter"),
     #update recruiter profile
     path("update_recruiter/<str:pk>", views.update_recruiter, name="update_recruiter"),
 
@@ -60,10 +60,14 @@ urlpatterns=[
     path("detail_jobview/<str:pk>", views.detail_jobview, name="detail_jobview"),
     
     #delete recruiter profile
-    path("delete/<str:pk>",views.delete_job, name="delete"),
+    path("delete_job/<str:pk>",views.delete_job, name="delete_job"),
     # update jobs
     path("update_job/<str:pk>", views.update_job, name="update_job"),
     
     #candidate side : Apply jobs
     path("apply_jobs/", views.apply_jobs, name="apply_jobs"),
+
+    #admin side : Add candidates
+    path("add_candidates/", views.add_candidates, name="add_candidates"),
+
 ]
