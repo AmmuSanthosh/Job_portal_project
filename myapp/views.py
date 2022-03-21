@@ -200,6 +200,18 @@ def add_candidates(request):
         candidate(firstname=firstname,lastname=lastname,email=email,phonenumber=phonenumber,username=username,password=password).save()
     return render(request, 'add_candidates.html')
 
+#add recruiters
+def add_recruiters(request):
+    if request.method == 'POST':
+        companyname = request.POST.get('companyname')
+        companyaddress = request.POST.get('companyaddress')
+        email = request.POST.get('email')
+        phonenumber = request.POST.get('phonenumber')
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        recruiter(companyname=companyname,companyaddress=companyaddress,email=email,phonenumber=phonenumber,username=username,password=password).save()
+    return render(request, 'add_recruiters.html')
+
 #admin login
 def admin_login(request):
     return render(request, 'admin_login.html')

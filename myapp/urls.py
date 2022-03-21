@@ -69,5 +69,5 @@ urlpatterns=[
 
     #admin side : Add candidates
     path("add_candidates/", views.add_candidates, name="add_candidates"),
-
+    path("add_recruiters/", views.add_recruiters, name="add_recruiters"),
 ]
