@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ cr.firstname }} Detailed view</title>
+</head>
+
+<body>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for=""><b>Details of {{ cr.firstname }} {{cr.lastname}}</b></label>
+        <br><br>
+        <label for="">First Name: {{ cr.firstname }}</label><br>
+        <label for="">Last Name: {{ cr.lastname }}</label><br>
+        <label for="">Email: {{ cr.email }}</label><br>
+        <label for="">Phone Number: {{ cr.phonenumber }}</label><br>
+    </form>
+    <a href="/register_candidates/">Back</a>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ cr.companyname }} Detailed view</title>
+</head>
+
+<body>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for=""><b>Details of {{ cr.companyname }} </b></label>
+        <br><br>
+        <label for="">Company Name: {{ cr.companyname }}</label><br>
+        <label for="">Company Address: {{ cr.companyaddress }}</label><br>
+        <label for="">Email: {{ cr.email }}</label><br>
+        <label for="">Phone Number: {{ cr.phonenumber }}</label><br>
+        <a href="/register_recruiters/">Back</a>
+    </form>
+</body>
+
+</html>

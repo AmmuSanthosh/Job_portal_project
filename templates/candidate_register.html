@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Sign Up Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0 auto;
+            text-decoration: none;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .mainimage {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            margin-left: -15px;
+
+        }
+
+        label {
+            color: #ffff;
+        }
+
+        a {
+            color: gainsboro;
+
+        }
+
+        .banner-card {
+            position: fixed;
+        }
+
+        .banner-card {
+            max-width: 100%;
+
+        }
+
+        .banner-text {
+            position: absolute;
+            top: 13%;
+            padding: 140px;
+            margin-left: 422px;
+        }
+
+        .banner-text h4 {
+            font-size: 27px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 5px;
+            margin-top: -121px;
+            color: white;
+        }
+
+        .form {
+            height: 350px;
+        }
+    </style>
+
+    <div class="banner-card col-md-12 ">
+        <img class="mainimage" src="https://cdn.fs.teachablecdn.com/GseSwMj0RbWgpxADz9pA" alt="">
+        <form class="form col-12 " method="POST" action="">
+            {% csrf_token %}
+            <div class="banner-text col-12">
+                <h4 class="pt-5" data-aos="fade-left" style="color: #450A3B;">Candidate Sign
+                    Up.....</h4>
+            </div>
+            <div class="banner-text form-outline  col-12">
+                <label class="form-label" for="form2Example11">First Name</label>
+                <input name="firstname" type="text" class="form-control" placeholder="Type your firstname"
+                    style="width: 375px; ">
+                <label class="form-label" for="form2Example11">Last Name</label>
+                <input name="lastname" type="text" class="form-control" placeholder="Type your lastname"
+                    style="width: 375px; ">
+                <label class="form-label" for="form2Example11">Email Address</label>
+                <input name="email" type="text" class="form-control" placeholder="Type your email address"
+                    style="width: 375px; ">
+                <label class="form-label" for="form2Example11">Phone Number</label>
+                <input name="phonenumber" type="text" class="form-control" placeholder="Type your phonenumber "
+                    style="width: 375px; ">
+                <label class="form-label" for="form2Example11">Username</label>
+                <input name="username" type="text" class="form-control" placeholder="Type your username"
+                    style="width: 375px; ">
+                <label class="form-label">Password</label>
+                <input name="password" type="password" class="form-control" placeholder="Type your password"
+                    style="width: 375px;">
+
+                <button value="submit" class="btn btn-primary btn-block mb-3 mt-5" type="submit"
+                    style="width: 375px;">Sign Up</button>
+                <a class="text-muted pl-5" href="candidate_login">Already have an account?</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/8677b4cc00.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
