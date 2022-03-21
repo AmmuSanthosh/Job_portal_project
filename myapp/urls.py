@@ -19,7 +19,7 @@ urlpatterns=[
     path("viewcandidate/<str:pk>", views.viewcandidate, name="viewcandidate"),
 
     #delete candidate profile
-    path("delete/<str:pk>",views.delete_candidate, name="delete"),
+    path("delete_candidate/<str:pk>",views.delete_candidate, name="delete_candidate"),
     #update candidate profile
     path("update_candidate/<str:pk>", views.update_candidate, name="update_candidate"),
     

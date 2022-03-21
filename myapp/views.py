@@ -49,7 +49,7 @@ def viewcandidate(request,pk):
 def delete_candidate(request,pk):
     cr = candidate.objects.get(id = pk)
     cr.delete()
-    return redirect('register_candidates')
+    return redirect('admin_candidates')
 
 #update candidate profile
 def update_candidate(request,pk):
@@ -59,7 +59,7 @@ def update_candidate(request,pk):
         form = CandidateRegisterForm(request.POST, instance=cr)
         if form.is_valid:
             form.save()
-            return redirect('register_candidates')
+            return redirect('admin_candidates')
     return render(request, 'update_candidate.html', {'form':form})
 
 
@@ -108,7 +108,7 @@ def viewrecruiter(request,pk):
 def delete_recruiter(request,pk):
     cr = recruiter.objects.get(id = pk)
     cr.delete()
-    return redirect('register_recruiters')
+    return redirect('admin_recruiters')
 
 #update recruiter profile
 def update_recruiter(request,pk):
@@ -118,7 +118,7 @@ def update_recruiter(request,pk):
         form = RecruiterRegisterForm(request.POST, instance=cr)
         if form.is_valid:
             form.save()
-            return redirect('register_recruiters')
+            return redirect('admin_recruiters')
     return render(request, 'update_recruiter.html', {'form':form})
 
 #recruiter login
