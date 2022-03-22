@@ -6,16 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Jobs</title>
+    <!-- CSS only -->
+    <link rel="icon"
+        href="https://png.pngtree.com/png-vector/20191021/ourlarge/pngtree-vector-jobs-icon-png-image_1833495.jpg"
+        type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-</head>
-
-<body>
     <style>
-        *{
+        * {
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
+
         .divider:after,
         .divider:before {
             content: "";
@@ -25,12 +27,13 @@
         }
     </style>
 
+</head>
+
+<body>
     <section class="vh-100">
         <div class="container py-5 h-100">
             <div class="row d-flex align-items-center justify-content-center h-100">
                 <div class="col-md-8 col-lg-7 col-xl-6">
-                    <!-- <img src="https://e3.365dm.com/21/03/768x432/2372103190295984307_5310817.jpg?20210319162443"
-                        class="img-fluid" alt="Phone image"> -->
                     <img src="https://e3.365dm.com/21/03/768x432/2372103190295984307_5310817.jpg?20210319162443"
                         class="rounded img-fluid" alt="Cinque Terre"
                         style="width: 400px; height: 420px; margin-top: 60px; margin-left: 85px;">
@@ -42,19 +45,19 @@
                         <div class="form-outline mb-4">
                             <label class="form-label" for="form1Example13">Job Type</label>
                             <input type="text" name="jobtype" id="form1Example13" placeholder="Type your jobt ype"
-                                class="form-control form-control-lg">
+                                class="form-control form-control-lg" required>
                         </div>
                         <!-- Job name input -->
                         <div class="form-outline mb-4">
                             <label class="form-label" for="form1Example13">Job Name</label>
                             <input type="text" name="jobname" id="form1Example13" placeholder="Type your job name"
-                                class="form-control form-control-lg">
+                                class="form-control form-control-lg" required>
                         </div>
                         <!-- Vacancies input -->
                         <div class="form-outline mb-4">
                             <label class="form-label" for="form1Example13">Vacancies</label>
                             <input type="number" name="vacancies" id="form1Example13" placeholder="Type your vacancies"
-                                class="form-control form-control-lg">
+                                class="form-control form-control-lg" required>
                         </div>
 
                         <!-- Submit button -->

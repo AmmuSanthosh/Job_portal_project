@@ -1,14 +1,68 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
-<head></head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Details</title>
+    <!-- CSS only -->
+    <link rel="icon"
+        href="https://png.pngtree.com/png-vector/20191021/ourlarge/pngtree-vector-jobs-icon-png-image_1833495.jpg"
+        type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        * {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .divider:after,
+        .divider:before {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #eee;
+        }
+    </style>
+</head>
+
 
 <body>
-    <form action="" method="POST" enctype="multipart/form-data">
-        {%csrf_token%}
-        {{form.as_p}}
-        <button type="submit">Update</button>
-    </form>
-    <a href="/register_recruiters/">Back</a>
+    <section class="vh-100">
+        <div class="container py-5 h-100">
+            <div class="row d-flex align-items-center justify-content-center h-100">
+                <div class="col-md-8 col-lg-7 col-xl-6">
+                    <img src="http://www.minimaxsolution.com/wp-content/uploads/2017/09/pic_6-300x223.png"
+                        class="rounded img-fluid" alt="Cinque Terre"
+                        style="width: 400px; height: 420px; margin-top: 60px; margin-left: 85px;">
+                </div>
+                <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1" style="margin-top: 40px; margin-left: -52px;">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {%csrf_token%}
+                        {{form.as_p}}
+                        <button type="submit" class="btn btn-info btn-lg btn-block">Update</button>
+                    </form>
+                    <a href="/admin_recruiters/">Back</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/8677b4cc00.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>

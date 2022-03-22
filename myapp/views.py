@@ -6,23 +6,15 @@ from .models import candidate, jobs, recruiter
 from django.contrib import auth
 # Create your views here.
 
-#main home page
+#Main home page
 def main_home(request):
     return render(request,'main_home.html')
 
-#candidate home page
+#Candidate home page
 def candidate_home(request):
     return render(request,'candidate_home.html')
 
-#recruiter home page
-def recruiter_home(request):
-    return render(request,'recruiter_home.html')
-
-#admin home page
-def admin_home(request):
-    return render(request,'admin_home.html')
-
-#candidate registration
+#Candidate registration
 def candidate_register(request):
     if request.method == 'POST':
         firstname = request.POST.get('firstname')
@@ -35,35 +27,7 @@ def candidate_register(request):
         return redirect('candidate_login')
     return render(request, 'candidate_register.html')
 
-#view candidate 
-def register_candidates(request):
-    cr = candidate.objects.all()
-    return render(request, 'register_candidates.html',{'cr':cr})
-
-#view candidate profile
-def viewcandidate(request,pk):
-    cr = candidate.objects.get(id=pk)
-    return render(request, 'view_candidate.html',{'cr':cr})
-
-#delete candidate profile
-def delete_candidate(request,pk):
-    cr = candidate.objects.get(id = pk)
-    cr.delete()
-    return redirect('admin_candidates')
-
-#update candidate profile
-def update_candidate(request,pk):
-    cr = candidate.objects.get(id = pk)
-    form = CandidateRegisterForm(instance= cr)
-    if request.method == 'POST':
-        form = CandidateRegisterForm(request.POST, instance=cr)
-        if form.is_valid:
-            form.save()
-            return redirect('admin_candidates')
-    return render(request, 'update_candidate.html', {'form':form})
-
-
-#candidate login
+#Candidate login
 def candidate_login(request):
     return render(request, 'candidate_login.html')
 
@@ -81,7 +45,22 @@ def loguser(request):
     else:
         return render(request, 'candidate_register.html')
 
-#recruiter registration
+#View candidates profile
+def register_candidates(request):
+    cr = candidate.objects.all()
+    return render(request, 'register_candidates.html',{'cr':cr})
+
+#Candidate side : Apply jobs
+def apply_jobs(request):
+    cr = jobs.objects.all()
+    return render(request, 'apply_jobs.html',{'cr':cr})
+
+
+#Recruiter home page
+def recruiter_home(request):
+    return render(request,'recruiter_home.html')
+
+#Recruiter registration
 def recruiter_register(request):
     if request.method == 'POST':
         companyname = request.POST.get('companyname')
@@ -94,34 +73,7 @@ def recruiter_register(request):
         return redirect('recruiter_login')
     return render(request, 'recruiter_register.html')
 
-#view recruiter 
-def register_recruiters(request):
-    cr = recruiter.objects.all()
-    return render(request, 'register_recruiters.html',{'cr':cr})
-
-#view recruiter profile
-def viewrecruiter(request,pk):
-    cr = recruiter.objects.get(id=pk)
-    return render(request, 'view_recruiter.html',{'cr':cr})
-
-#delete recruiter profile
-def delete_recruiter(request,pk):
-    cr = recruiter.objects.get(id = pk)
-    cr.delete()
-    return redirect('admin_recruiters')
-
-#update recruiter profile
-def update_recruiter(request,pk):
-    cr = recruiter.objects.get(id = pk)
-    form = RecruiterRegisterForm(instance= cr)
-    if request.method == 'POST':
-        form = RecruiterRegisterForm(request.POST, instance=cr)
-        if form.is_valid:
-            form.save()
-            return redirect('admin_recruiters')
-    return render(request, 'update_recruiter.html', {'form':form})
-
-#recruiter login
+#Recruiter login
 def recruiter_login(request):
     return render(request, 'recruiter_login.html')
 
@@ -139,7 +91,12 @@ def logrecruiter(request):
     else:
         return render(request, 'recruiter_register.html')
 
-#add jobs
+#View recruiter 
+def register_recruiters(request):
+    cr = recruiter.objects.all()
+    return render(request, 'register_recruiters.html',{'cr':cr})
+
+#Recruiter side : add jobs
 def add_jobs(request):
     if request.method == 'POST':
         jobtype = request.POST.get('jobtype')
@@ -148,73 +105,17 @@ def add_jobs(request):
         jobs(jobtype=jobtype,jobname=jobname,vacancies=vacancies).save()
     return render(request, 'add_jobs.html')
 
-#view jobs profile
-def view_jobs(request):
+#View jobs list
+def jobs_list(request):
     cr = jobs.objects.all()
-    return render(request, 'view_jobs.html',{'cr':cr})
+    return render(request, 'jobs_list.html',{'cr':cr})
 
-#detailview job profile
-def detail_jobview(request,pk):
-    cr = jobs.objects.get(id=pk)
-    return render(request, 'detail_jobview.html',{'cr':cr})
 
-#delete jobs profile
-def delete_job(request,pk):
-    cr = jobs.objects.get(id = pk)
-    cr.delete()
-    return redirect('view_jobs')
+#Admin home page
+def admin_home(request):
+    return render(request,'admin_home.html')
 
-#update jobs profile
-def update_job(request,pk):
-    cr = jobs.objects.get(id = pk)
-    form = JobListForm(instance= cr)
-    if request.method == 'POST':
-        form = JobListForm(request.POST, instance=cr)
-        if form.is_valid:
-            form.save()
-            return redirect('view_jobs')
-    return render(request, 'update_job.html', {'form':form})
-
-#apply jobs
-def apply_jobs(request):
-    cr = jobs.objects.all()
-    return render(request, 'apply_jobs.html',{'cr':cr})
-
-#add candidates
-def add_candidates(request):
-    if request.method == 'POST':
-        firstname = request.POST.get('firstname')
-        lastname = request.POST.get('lastname')
-        email = request.POST.get('email')
-        phonenumber = request.POST.get('phonenumber')
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        candidate(firstname=firstname,lastname=lastname,email=email,phonenumber=phonenumber,username=username,password=password).save()
-    return render(request, 'add_candidates.html')
-
-#add recruiters
-def add_recruiters(request):
-    if request.method == 'POST':
-        companyname = request.POST.get('companyname')
-        companyaddress = request.POST.get('companyaddress')
-        email = request.POST.get('email')
-        phonenumber = request.POST.get('phonenumber')
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        recruiter(companyname=companyname,companyaddress=companyaddress,email=email,phonenumber=phonenumber,username=username,password=password).save()
-    return render(request, 'add_recruiters.html')
-
-#admin side : candidates list
-def admin_candidates(request):
-    cr = candidate.objects.all()
-    return render(request, 'admin_candidates.html',{'cr':cr})
-
-#admin side : recruiters list
-def admin_recruiters(request):
-    cr = candidate.objects.all()
-    return render(request, 'admin_recruiters.html',{'cr':cr})
-
-#admin login
+#Admin login
 def admin_login(request):
     return render(request, 'admin_login.html')
 
@@ -234,6 +135,103 @@ def logadmin(request):
 def loggedadmin(request):
     return render(request, 'admin_home.html')
 
+#Admin side : Add candidates
+def add_candidates(request):
+    if request.method == 'POST':
+        firstname = request.POST.get('firstname')
+        lastname = request.POST.get('lastname')
+        email = request.POST.get('email')
+        phonenumber = request.POST.get('phonenumber')
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        candidate(firstname=firstname,lastname=lastname,email=email,phonenumber=phonenumber,username=username,password=password).save()
+    return render(request, 'add_candidates.html')
+
+#Add recruiters
+def add_recruiters(request):
+    if request.method == 'POST':
+        companyname = request.POST.get('companyname')
+        companyaddress = request.POST.get('companyaddress')
+        email = request.POST.get('email')
+        phonenumber = request.POST.get('phonenumber')
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        recruiter(companyname=companyname,companyaddress=companyaddress,email=email,phonenumber=phonenumber,username=username,password=password).save()
+    return render(request, 'add_recruiters.html')
+
+
+#Admin side : view registered candidates
+def admin_candidates(request):
+    cr = candidate.objects.all()
+    return render(request, 'admin_candidates.html',{'cr':cr})
+
+#Delete candidate profile
+def delete_candidate(request,pk):
+    cr = candidate.objects.get(id = pk)
+    cr.delete()
+    return redirect('admin_candidates')
+
+#Update candidate profile
+def update_candidate(request,pk):
+    cr = candidate.objects.get(id = pk)
+    form = CandidateRegisterForm(instance= cr)
+    if request.method == 'POST':
+        form = CandidateRegisterForm(request.POST, instance=cr)
+        if form.is_valid:
+            form.save()
+            return redirect('admin_candidates')
+    return render(request, 'update_candidate.html', {'form':form})
+
+
+
+#Admin side : view registered recruiters
+def admin_recruiters(request):
+    cr = recruiter.objects.all()
+    return render(request, 'admin_recruiters.html',{'cr':cr})
+
+#Delete recruiter profile
+def delete_recruiter(request,pk):
+    cr = recruiter.objects.get(id = pk)
+    cr.delete()
+    return redirect('admin_recruiters')
+
+#Update recruiter profile
+def update_recruiter(request,pk):
+    cr = recruiter.objects.get(id = pk)
+    form = RecruiterRegisterForm(instance= cr)
+    if request.method == 'POST':
+        form = RecruiterRegisterForm(request.POST, instance=cr)
+        if form.is_valid:
+            form.save()
+            return redirect('admin_recruiters')
+    return render(request, 'update_recruiter.html', {'form':form})
+
+
+#Admin side : view jobs
+def view_jobs(request):
+    cr = jobs.objects.all()
+    return render(request, 'view_jobs.html',{'cr':cr})
+
+#Delete jobs profile
+def delete_job(request,pk):
+    cr = jobs.objects.get(id = pk)
+    cr.delete()
+    return redirect('view_jobs')
+
+#Update jobs profile
+def update_job(request,pk):
+    cr = jobs.objects.get(id = pk)
+    form = JobListForm(instance= cr)
+    if request.method == 'POST':
+        form = JobListForm(request.POST, instance=cr)
+        if form.is_valid:
+            form.save()
+            return redirect('view_jobs')
+    return render(request, 'update_job.html', {'form':form})
+
+
+#logout
 def logout(request):
     auth.logout(request)
     return redirect('main_home')
+
