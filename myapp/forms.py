@@ -1,7 +1,7 @@
 from pyexpat import model
 from dataclasses import fields
 from tkinter import Widget
-from .models import candidate, recruiter, jobs
+from .models import candidate, recruiter, jobs, Application
 from django import forms
 
 class CandidateRegisterForm(forms.ModelForm):

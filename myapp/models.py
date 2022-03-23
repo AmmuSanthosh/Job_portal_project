@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 class candidate(models.Model):
@@ -21,3 +22,11 @@ class jobs(models.Model):
     jobtype = models.CharField(max_length=200, null=True)
     jobname = models.CharField(max_length=200, null=True)
     vacancies = models.IntegerField(null=True)
+
+class Application(models.Model):
+    job = models.ForeignKey(jobs, on_delete=models.CASCADE)
+    applicant = models.ForeignKey(candidate, on_delete=models.CASCADE)
+    apply_date = models.DateField()
+ 
+    def _str_ (self):
+        return str(self.applicant)

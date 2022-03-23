@@ -33,18 +33,20 @@
     <section class="vh-100">
         <div class="container py-5 h-100">
             <div class="row d-flex align-items-center justify-content-center h-100">
-                <div class="col-md-8 col-lg-7 col-xl-6">
+                <div class="col-md-6 col-sm-3 ">
                     <img src="http://www.minimaxsolution.com/wp-content/uploads/2017/09/pic_6-300x223.png"
                         class="rounded img-fluid" alt="Cinque Terre"
                         style="width: 400px; height: 420px; margin-top: 60px; margin-left: 85px;">
                 </div>
-                <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1" style="margin-top: 40px; margin-left: -52px;">
+                <div class="col-md-6 col-sm-4 offset-xl-1" style="margin-top: 40px; margin-left: -52px;">
                     <form action="" method="POST" enctype="multipart/form-data">
                         {%csrf_token%}
-                        {{form.as_p}}
+                        <div class="form-outline mb-4">
+                            {{form.as_p}}
+                        </div>
                         <button type="submit" class="btn btn-info btn-lg btn-block">Update</button>
+                        <a href="/admin_recruiters/">Back</a>
                     </form>
-                    <a href="/admin_recruiters/">Back</a>
                 </div>
             </div>
         </div>

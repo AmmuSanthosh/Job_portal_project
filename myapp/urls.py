@@ -20,7 +20,8 @@ urlpatterns=[
     
     #Candidate side : Apply jobs
     path("apply_jobs/", views.apply_jobs, name="apply_jobs"),
-
+    #Applied jobs
+    path("job_apply/<str:pk>", views.job_apply, name="job_apply"),
 
     #Recruiter home page
     path("recruiter_home/", views.recruiter_home, name="recruiter_home"),

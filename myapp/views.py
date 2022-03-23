@@ -1,9 +1,12 @@
+from email import message
+from pyexpat.errors import messages
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate,login as log
 from .forms import CandidateRegisterForm, JobListForm, RecruiterRegisterForm
-from .models import candidate, jobs, recruiter
+from .models import candidate, jobs, recruiter, Application
 from django.contrib import auth
+from datetime import date
 # Create your views here.
 
 #Main home page
@@ -55,6 +58,15 @@ def apply_jobs(request):
     cr = jobs.objects.all()
     return render(request, 'apply_jobs.html',{'cr':cr})
 
+#Applied jobs
+def job_apply(request, pk):
+    applicant = candidate.objects.get(user=request.user)
+    job = jobs.objects.get(id=pk)
+    date1 = date.today()
+
+    Application.objects.create(job=job, applicant=applicant, apply_date=date1)
+    return render('candidate_home')
+    
 
 #Recruiter home page
 def recruiter_home(request):
